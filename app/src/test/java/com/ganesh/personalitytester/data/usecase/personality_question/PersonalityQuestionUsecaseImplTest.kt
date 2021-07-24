@@ -1,16 +1,15 @@
 package com.ganesh.personalitytester.data.usecase.personality_question
 
-import com.ganesh.personalitytester.BaseTest
-import com.ganesh.personalitytester.data.PersonalityQuestionUsecase
+
+import com.ganesh.personalitytester.UseCaseBaseTest
 import com.ganesh.personalitytester.questionList.QuestionType
-import com.ganesh.personalitytester.questionList.SingleChoiceConditionalQuestionUiData
 import com.google.common.truth.Truth
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 
-class PersonalityQuestionUsecaseImplTest : BaseTest() {
+class PersonalityQuestionUsecaseImplTest : UseCaseBaseTest() {
     private lateinit var usecase: PersonalityQuestionUsecase
 
     @Before
@@ -20,17 +19,18 @@ class PersonalityQuestionUsecaseImplTest : BaseTest() {
     }
 
     @Test
-    fun `check all the question types are formed from the endpoint result`() = runBlocking {
+    fun getQuestions_success_case() = runBlocking {
         //when
         val results = usecase.getQuestions()
+
         //result
         results.collect {
             Truth.assertThat(it.size).isEqualTo(25)
             Truth.assertThat(it[0]?.questionType).isEqualTo(QuestionType.SINGLE_CHOICE)
-            Truth.assertThat(it[2]?.questionType)
-                .isEqualTo(QuestionType.SINGLE_CHOICE_CONDITIONAL)
-            Truth.assertThat((it[2] as SingleChoiceConditionalQuestionUiData).subQuestionData.questionType)
-                .isEqualTo(QuestionType.NUMBER_RANGE)
+            Truth.assertThat(it[0]?.categoryName).isEqualTo("PASSION")
+            Truth.assertThat(it[0]?.canShowCategoryName).isEqualTo(true)
+            Truth.assertThat(it[1]?.canShowCategoryName).isEqualTo(false)
         }
     }
+
 }

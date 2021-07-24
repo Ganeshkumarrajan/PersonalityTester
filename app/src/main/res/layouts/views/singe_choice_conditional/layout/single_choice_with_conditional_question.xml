@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+<variable
+    name="questionData"
+    type="com.ganesh.personalitytester.questionList.SingleChoiceConditionalQuestionUiData" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/categoryName"
+            style="@style/largeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{questionData.categoryName}"
+            app:viewVisibility="@{questionData.canShowCategoryName}"
+            tools:text="Category Name" />
+
+        <com.ganesh.personalitytester.views.single_choice.SingleChoiceQuestionView
+            android:id="@+id/singleChoiceView"
+            style="@style/mediumText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/categoryName"
+            tools:text="question name" />
+
+        <com.ganesh.personalitytester.views.number_range.NumberRangeQuestionView
+            android:id="@+id/numberRangeView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/singleChoiceView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
