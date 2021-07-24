@@ -1,13 +1,13 @@
 package com.ganesh.personalitytester.data.usecase.personality_question.converter
 
-import com.ganesh.personalitytester.data.usecase.personality_question.QuestionsRemoteData
+import com.ganesh.personalitytester.data.usecase.personality_question.model.QuestionsRemoteData
 
 import com.ganesh.personalitytester.questionList.*
+import java.util.*
 
 
 class SingleChoiceConditionalQuestion(
     private val questionData: QuestionsRemoteData,
-    private val categoryType: QuestionCategoryType
 ) : QuestionInterface {
     override fun convertUIQuestionData(): QuestionUIData {
         val exactEquals = mutableListOf<String>()
@@ -17,15 +17,17 @@ class SingleChoiceConditionalQuestion(
         }
 
         val rangeQuestion: NumberRangeDataUiData =
-            PersonalityQuestionFactory.build(questionData, categoryType, QuestionType.NUMBER_RANGE).convertUIQuestionData() as NumberRangeDataUiData
+            PersonalityQuestionFactory.build(questionData, QuestionType.NUMBER_RANGE)
+                .convertUIQuestionData() as NumberRangeDataUiData
 
         return SingleChoiceConditionalQuestionUiData(
             questionData.question,
             QuestionType.SINGLE_CHOICE_CONDITIONAL,
-            categoryType,
-            questionData.toOptions(),
+            options = questionData.toOptions(),
             conditions = exactEquals,
-            subQuestionData = rangeQuestion
+            subQuestionData = rangeQuestion,
+            canShowCategoryName = false,
+            categoryName = questionData.category.replace("_", " ").toUpperCase(Locale.ROOT)
         )
     }
 }
