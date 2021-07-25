@@ -17,6 +17,7 @@ abstract class BaseViewModel : ViewModel() {
             try {
                 data?.value = Result.Loading
                 block()
+                data?.value = Result.Success(null)
             } catch (e: Exception) {
                 data?.value = Result.Error(e)
             }

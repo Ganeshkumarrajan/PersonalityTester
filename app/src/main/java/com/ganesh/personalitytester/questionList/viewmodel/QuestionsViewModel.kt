@@ -1,6 +1,7 @@
 package com.ganesh.personalitytester.questionList.viewmodel
 
 import androidx.lifecycle.MutableLiveData
+import androidx.navigation.Navigation
 import com.ganesh.personalitytester.base.BaseViewModel
 import com.ganesh.personalitytester.base.Result
 import com.ganesh.personalitytester.data.usecase.question_list.PersonalityQuestionUsecase
@@ -34,14 +35,7 @@ class QuestionsViewModel(
 
     private fun checkSavedResult(status: Boolean) {
         if (status) {
-            reset()
             answerSaving.value = status
-        }
-    }
-
-    private fun reset() {
-        questions.value?.forEach {
-            it?.answer = null
         }
     }
 

@@ -47,6 +47,7 @@ android {
                             'src/main/res/layouts/views/number_range',
                             'src/main/res/layouts/views/singe_choice',
                             'src/main/res/layouts/views/singe_choice_conditional',
+                            'src/main/res/layouts/gretting',
                             'src/main/res/layouts/question_list',
 
                     ]

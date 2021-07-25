@@ -2,6 +2,7 @@ package com.ganesh.personalitytester.questionList.view
 
 import android.os.Bundle
 import android.view.View
+import androidx.navigation.Navigation
 import com.ganesh.personalitytester.R
 import com.ganesh.personalitytester.base.BaseFragment
 import com.ganesh.personalitytester.databinding.QuestionListFragmentBinding
@@ -28,9 +29,10 @@ class QuestionListFragment : BaseFragment<QuestionListFragmentBinding>() {
     private fun setViewModelObservers() {
         viewModel.questions.observe(viewLifecycleOwner, {
             parseQuestionResult(it)
+            binding.buttonVisibility = true
         })
 
-        viewModel.answerSaving.observe(viewLifecycleOwner,{
+        viewModel.answerSaving.observe(viewLifecycleOwner, {
             onSaved()
         })
     }
@@ -39,17 +41,15 @@ class QuestionListFragment : BaseFragment<QuestionListFragmentBinding>() {
         binding.question.adapter = adapter
     }
 
-    private fun parseQuestionResult(result: List<QuestionUIData?>) {
-        onQuestionsReceived(result)
-    }
+    private fun parseQuestionResult(result: List<QuestionUIData?>) = onQuestionsReceived(result)
 
-    private fun onQuestionsReceived(data: List<QuestionUIData?>) {
-        adapter.setData(data)
-    }
 
-    private fun onSaved(){
-        adapter.notifyDataSetChanged()
-    }
+    private fun onQuestionsReceived(data: List<QuestionUIData?>) = adapter.setData(data)
+
+
+    private fun onSaved() =
+        Navigation.findNavController(binding.root).navigate(R.id.question_list_to_grettings)
+
 }
 
 
