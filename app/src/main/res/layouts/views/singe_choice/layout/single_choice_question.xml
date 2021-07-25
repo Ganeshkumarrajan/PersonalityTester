@@ -11,7 +11,7 @@
 
         <variable
             name="questionData"
-            type="com.ganesh.personalitytester.questionList.SingleChoiceQuestionUiData" />
+            type="com.ganesh.personalitytester.questionList.model.SingleChoiceQuestionUiData" />
     </data>
 
 

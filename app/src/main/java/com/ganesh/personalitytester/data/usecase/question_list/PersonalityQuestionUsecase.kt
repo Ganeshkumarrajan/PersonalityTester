@@ -1,6 +1,6 @@
-package com.ganesh.personalitytester.data.usecase.personality_question
+package com.ganesh.personalitytester.data.usecase.question_list
 
-import com.ganesh.personalitytester.questionList.QuestionUIData
+import com.ganesh.personalitytester.questionList.model.QuestionUIData
 import kotlinx.coroutines.flow.Flow
 
 

@@ -1,8 +1,11 @@
-package com.ganesh.personalitytester.data.usecase.personality_question.converter
+package com.ganesh.personalitytester.data.usecase.question_list.converter
 
-import com.ganesh.personalitytester.data.usecase.personality_question.model.QuestionsRemoteData
+import com.ganesh.personalitytester.data.usecase.question_list.model.QuestionsRemoteData
 
-import com.ganesh.personalitytester.questionList.*
+import com.ganesh.personalitytester.questionList.model.NumberRangeDataUiData
+import com.ganesh.personalitytester.questionList.model.QuestionType
+import com.ganesh.personalitytester.questionList.model.QuestionUIData
+import com.ganesh.personalitytester.questionList.model.SingleChoiceConditionalQuestionUiData
 import java.util.*
 
 

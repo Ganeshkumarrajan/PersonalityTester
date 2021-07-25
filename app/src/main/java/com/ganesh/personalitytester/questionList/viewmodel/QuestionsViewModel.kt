@@ -1,0 +1,56 @@
+package com.ganesh.personalitytester.questionList.viewmodel
+
+import androidx.lifecycle.MutableLiveData
+import com.ganesh.personalitytester.base.BaseViewModel
+import com.ganesh.personalitytester.base.Result
+import com.ganesh.personalitytester.data.usecase.question_list.PersonalityQuestionUsecase
+import com.ganesh.personalitytester.data.usecase.save_answer.SaveAnswerUseCase
+import com.ganesh.personalitytester.questionList.model.QuestionUIData
+import kotlinx.coroutines.flow.collect
+
+
+class QuestionsViewModel(
+    private val personalityQuestionUsecase: PersonalityQuestionUsecase,
+    private val saveAnswerUseCase: SaveAnswerUseCase
+) :
+    BaseViewModel() {
+    val questions = MutableLiveData<List<QuestionUIData?>>()
+    val answerSaving = MutableLiveData<Boolean>()
+    val screenState = MutableLiveData<Result<Boolean>>()
+
+    init {
+        getAllQuestions()
+    }
+
+    fun saveAnswers() {
+        launchCoroutine(
+            {
+                saveAnswerUseCase.saveAnswer(questions = questions.value).collect {
+                    checkSavedResult(it)
+                }
+            }, screenState
+        )
+    }
+
+    private fun checkSavedResult(status: Boolean) {
+        if (status) {
+            reset()
+            answerSaving.value = status
+        }
+    }
+
+    private fun reset() {
+        questions.value?.forEach {
+            it?.answer = null
+        }
+    }
+
+    private fun getAllQuestions() {
+        launchCoroutine({
+            personalityQuestionUsecase.getQuestions().collect {
+                questions.value = it
+            }
+        }, screenState)
+    }
+
+}

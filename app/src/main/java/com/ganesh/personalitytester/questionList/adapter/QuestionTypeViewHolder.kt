@@ -1,11 +1,12 @@
-package com.ganesh.personalitytester.questionList
+package com.ganesh.personalitytester.questionList.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ganesh.personalitytester.databinding.SingelChonceViewAdpaterLayoutBinding
 import com.ganesh.personalitytester.databinding.SingelChonceWithConditionalViewAdpaterLayoutBinding
+import com.ganesh.personalitytester.questionList.model.SingleChoiceConditionalQuestionUiData
+import com.ganesh.personalitytester.questionList.model.SingleChoiceQuestionUiData
 
 class SingleChoiceConditionalQuestionViewHolder(val binding: SingelChonceWithConditionalViewAdpaterLayoutBinding) :
     RecyclerView.ViewHolder(binding.root) {

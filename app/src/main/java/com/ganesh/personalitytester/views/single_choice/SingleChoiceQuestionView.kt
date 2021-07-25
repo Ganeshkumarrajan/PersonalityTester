@@ -4,8 +4,8 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import com.ganesh.personalitytester.databinding.SingleChoiceQuestionBinding
-import com.ganesh.personalitytester.questionList.Answer
-import com.ganesh.personalitytester.questionList.SingleChoiceQuestionUiData
+import com.ganesh.personalitytester.questionList.model.Answer
+import com.ganesh.personalitytester.questionList.model.SingleChoiceQuestionUiData
 import com.ganesh.personalitytester.views.BaseQuestionView
 
 class SingleChoiceQuestionView : BaseQuestionView<String, SingleChoiceQuestionUiData>,
@@ -35,6 +35,7 @@ class SingleChoiceQuestionView : BaseQuestionView<String, SingleChoiceQuestionUi
         binding.answers.adapter = adapter
         binding.questionData = question
         adapter.setData(question?.options ?: emptyList())
+        adapter.updateSelectedAnswer(question?.answer?.answer?:"")
     }
 
     override fun onAnswerSelected(answer: String) {

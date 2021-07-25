@@ -1,9 +1,9 @@
-package com.ganesh.personalitytester.data.usecase.personality_question.converter
+package com.ganesh.personalitytester.data.usecase.question_list.converter
 
-import com.ganesh.personalitytester.data.usecase.personality_question.model.IfPositive
-import com.ganesh.personalitytester.questionList.NumberRangeDataUiData
-import com.ganesh.personalitytester.questionList.NumberRangeLimit
-import com.ganesh.personalitytester.questionList.QuestionType
+import com.ganesh.personalitytester.data.usecase.question_list.model.IfPositive
+import com.ganesh.personalitytester.questionList.model.NumberRangeDataUiData
+import com.ganesh.personalitytester.questionList.model.NumberRangeLimit
+import com.ganesh.personalitytester.questionList.model.QuestionType
 
 
 class NumberRangeQuestion(
