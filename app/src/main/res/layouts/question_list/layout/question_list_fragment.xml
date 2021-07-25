@@ -6,6 +6,9 @@
     <data>
 
         <variable
+            name="buttonVisibility"
+            type="Boolean" />
+        <variable
             name="viewmodel"
             type="com.ganesh.personalitytester.questionList.viewmodel.QuestionsViewModel" />
     </data>
@@ -14,6 +17,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/light_gray"
         tools:context=".MainActivity">
 
 
@@ -32,12 +36,41 @@
 
         <Button
             android:id="@+id/save"
+            style="@style/largeText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_15sdp"
             android:layout_marginEnd="@dimen/_15sdp"
+            app:viewVisibility="@{buttonVisibility}"
+            android:visibility="gone"
             android:onClick="@{()-> viewmodel.saveAnswers()}"
+            android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            style="@style/Widget.AppCompat.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:progressbarVisibility="@{viewmodel.screenState}" />
+
+        <TextView
+            android:id="@+id/errorMessage"
+            style="@style/largeErrorText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="@dimen/_20sdp"
+            android:gravity="center"
+            tools:text="error message"
+            app:showError="@{viewmodel.screenState}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

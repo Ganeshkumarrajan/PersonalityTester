@@ -27,21 +27,49 @@ class SingleChoiceWithConditionalQuestionView :
         styleAttr
     )
 
+    init {
+        registerForAnswering()
+    }
+
     override fun onAnswerSelected(answer: String) {
         onAnsweredBlock?.invoke(answer)
     }
 
     override fun setQuestion(question: SingleChoiceConditionalQuestionUiData?) {
         this.question = question
-        binding.questionData = question
         binding.singleChoiceView.setQuestion(question)
+    }
+
+    private fun registerForAnswering() {
         binding.singleChoiceView.registerToAnswerCompletion {
-            if (canShowRangeView(it)) binding.numberRangeView.setQuestion(this.question?.subQuestionData)
-            else binding.numberRangeView.setQuestion(null)
+            onAnsweredOnSingleChoiceQuestionView(it)
+        }
+
+        binding.numberRangeView.registerToAnswerCompletion {
+
         }
     }
 
-    private fun canShowRangeView(selectedAnswer: String): Boolean {
+    private fun onAnsweredOnSingleChoiceQuestionView(answer: String) {
+        if (canShowNumberRangeQuestionView(answer)) showNumberRangeQuestionTypeView()
+        else hideNumberRangeQuestionView()
+    }
+
+    private fun onAnsweredOnNumberRangeQuestionView(answer:Int){
+
+    }
+
+    private fun showNumberRangeQuestionTypeView() {
+        binding.numberRangeViewVisibility = true
+        binding.numberRangeView.setQuestion(this.question?.subQuestionData)
+    }
+
+    private fun hideNumberRangeQuestionView() {
+        binding.numberRangeViewVisibility = false
+        binding.numberRangeView.setQuestion(null)
+    }
+
+    private fun canShowNumberRangeQuestionView(selectedAnswer: String): Boolean {
         question?.conditions?.forEach {
             if (it == selectedAnswer) {
                 return true

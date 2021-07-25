@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PersonalityTester</string>
+    <string name="congrats">congratulations you finished the test</string>
+    <string name="save">Save</string>
 </resources>

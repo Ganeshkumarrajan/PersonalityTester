@@ -47,4 +47,4 @@ data class NumberRangeDataUiData(
 data class NumberRangeLimit(val from: Long, val to: Long)
 
 
-data class Answer(val answer: String?, val conditionAnswer: String? = null)
+data class Answer(var answer: String?, val conditionAnswer: String? = null)

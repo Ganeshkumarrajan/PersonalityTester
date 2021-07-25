@@ -20,11 +20,12 @@
 
         <com.google.android.material.radiobutton.MaterialRadioButton
             android:id="@+id/answerRadioButton"
+            style="@style/radioButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{choiceAnswer}"
-            app:buttonTint="@color/teal_700"
             android:onClick="@{() -> answerSelectionListener.onAnswerSelected(choiceAnswer)}"
+            android:text="@{choiceAnswer}"
+            app:buttonTint="@color/primary_color"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

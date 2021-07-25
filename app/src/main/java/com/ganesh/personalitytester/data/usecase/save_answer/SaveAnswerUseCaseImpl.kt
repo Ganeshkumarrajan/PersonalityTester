@@ -23,7 +23,11 @@ class SaveAnswerUseCaseImpl(private val answerDao: AnswerDao) : SaveAnswerUseCas
                 }
 
                 QuestionType.SINGLE_CHOICE_CONDITIONAL -> {
-                    saveSingleChoiceConditionalAnswer(it as SingleChoiceConditionalQuestionUiData)
+                    saveAllTypeAnswer(
+                        it.name,
+                        it.categoryName ?: "",
+                        saveSingleChoiceConditionalAnswer(it as SingleChoiceConditionalQuestionUiData)
+                    )
                 }
 
                 else -> throw Exception("No data is saved")
@@ -50,6 +54,7 @@ class SaveAnswerUseCaseImpl(private val answerDao: AnswerDao) : SaveAnswerUseCas
                 answerType = answerType,
                 answerID = answerID.toInt()
             )
+
         return answerDao.insertAnswerEntity(entity)
     }
 

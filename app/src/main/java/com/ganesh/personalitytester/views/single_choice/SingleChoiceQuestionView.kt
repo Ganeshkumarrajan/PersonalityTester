@@ -35,7 +35,7 @@ class SingleChoiceQuestionView : BaseQuestionView<String, SingleChoiceQuestionUi
         binding.answers.adapter = adapter
         binding.questionData = question
         adapter.setData(question?.options ?: emptyList())
-        adapter.updateSelectedAnswer(question?.answer?.answer?:"")
+        adapter.updateSelectedAnswer(question?.answer?.answer ?: "")
     }
 
     override fun onAnswerSelected(answer: String) {
