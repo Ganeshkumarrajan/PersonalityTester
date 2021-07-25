@@ -2,7 +2,9 @@ package com.ganesh.personalitytester.data.usecase.personality_question
 
 
 import com.ganesh.personalitytester.UseCaseBaseTest
-import com.ganesh.personalitytester.questionList.QuestionType
+import com.ganesh.personalitytester.data.usecase.question_list.PersonalityQuestionUsecase
+import com.ganesh.personalitytester.data.usecase.question_list.PersonalityQuestionUsecaseImpl
+import com.ganesh.personalitytester.questionList.model.QuestionType
 import com.google.common.truth.Truth
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.runBlocking

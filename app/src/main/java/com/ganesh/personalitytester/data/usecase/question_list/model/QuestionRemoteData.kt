@@ -1,4 +1,4 @@
-package com.ganesh.personalitytester.data.usecase.personality_question.model
+package com.ganesh.personalitytester.data.usecase.question_list.model
 
 data class QuestionsRemoteData(
     val question: String,

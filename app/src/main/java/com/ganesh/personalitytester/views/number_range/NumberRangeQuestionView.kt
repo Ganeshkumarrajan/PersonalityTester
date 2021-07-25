@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import com.ganesh.personalitytester.databinding.NumberRangeLayoutBinding
-import com.ganesh.personalitytester.questionList.NumberRangeDataUiData
+import com.ganesh.personalitytester.questionList.model.NumberRangeDataUiData
 import com.ganesh.personalitytester.views.BaseQuestionView
 
 class NumberRangeQuestionView : BaseQuestionView<Int, NumberRangeDataUiData> {

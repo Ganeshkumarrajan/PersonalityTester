@@ -2,7 +2,7 @@ package com.ganesh.personalitytester.views.number_range
 
 import android.widget.NumberPicker
 import androidx.databinding.BindingAdapter
-import com.ganesh.personalitytester.questionList.NumberRangeLimit
+import com.ganesh.personalitytester.questionList.model.NumberRangeLimit
 
 
 @BindingAdapter("app:ranges")

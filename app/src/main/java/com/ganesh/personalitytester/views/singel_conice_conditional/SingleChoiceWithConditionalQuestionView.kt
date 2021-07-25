@@ -3,11 +3,8 @@ package com.ganesh.personalitytester.views.singel_conice_conditional
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
-import com.ganesh.personalitytester.databinding.SingleChoiceQuestionBinding
 import com.ganesh.personalitytester.databinding.SingleChoiceWithConditionalQuestionBinding
-import com.ganesh.personalitytester.questionList.SingleChoiceConditionalQuestionUiData
-import com.ganesh.personalitytester.questionList.SingleChoiceQuestionUiData
+import com.ganesh.personalitytester.questionList.model.SingleChoiceConditionalQuestionUiData
 import com.ganesh.personalitytester.views.BaseQuestionView
 import com.ganesh.personalitytester.views.single_choice.AnswerSelectionListener
 import com.ganesh.personalitytester.views.single_choice.SingleChoiceQuestionAdapter

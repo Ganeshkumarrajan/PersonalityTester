@@ -1,8 +1,12 @@
-package com.ganesh.personalitytester.questionList
+package com.ganesh.personalitytester.questionList.adapter
 
 import android.annotation.SuppressLint
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.ganesh.personalitytester.questionList.model.QuestionType
+import com.ganesh.personalitytester.questionList.model.QuestionUIData
+import com.ganesh.personalitytester.questionList.model.SingleChoiceConditionalQuestionUiData
+import com.ganesh.personalitytester.questionList.model.SingleChoiceQuestionUiData
 
 class PersonalityQuestionAdapter :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -57,7 +61,6 @@ class PersonalityQuestionAdapter :
         questions.addAll(data)
         notifyDataSetChanged()
     }
-
 }
 
 

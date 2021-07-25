@@ -1,6 +1,6 @@
 package com.ganesh.personalitytester.data.remote
 
-import com.ganesh.personalitytester.data.usecase.personality_question.model.PersonalityQuestionRemoteResult
+import com.ganesh.personalitytester.data.usecase.question_list.model.PersonalityQuestionRemoteResult
 import retrofit2.http.GET
 
 

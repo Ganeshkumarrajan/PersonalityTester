@@ -1,7 +1,4 @@
-package com.ganesh.personalitytester.questionList
-
-
-
+package com.ganesh.personalitytester.questionList.model
 
 enum class QuestionType(val typeName: String) {
     SINGLE_CHOICE("single_choice"),

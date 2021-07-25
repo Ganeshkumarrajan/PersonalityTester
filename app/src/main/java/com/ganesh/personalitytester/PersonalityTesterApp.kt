@@ -1,6 +1,7 @@
 package com.ganesh.personalitytester
 
 import android.app.Application
+import com.ganesh.personalitytester.di.localDataSourceModule
 import com.ganesh.personalitytester.di.networkModule
 import com.ganesh.personalitytester.di.useCasesModule
 import com.ganesh.personalitytester.di.viewModelsModule
@@ -15,9 +16,8 @@ class PersonalityTesterApp : Application() {
             androidContext(this@PersonalityTesterApp)
             modules(
                 networkModule,
-
+                localDataSourceModule,
                 useCasesModule,
-
                 viewModelsModule,
             )
         }
