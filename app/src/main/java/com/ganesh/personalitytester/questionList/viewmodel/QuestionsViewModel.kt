@@ -1,18 +1,17 @@
 package com.ganesh.personalitytester.questionList.viewmodel
 
 import androidx.lifecycle.MutableLiveData
-import androidx.navigation.Navigation
 import com.ganesh.personalitytester.base.BaseViewModel
 import com.ganesh.personalitytester.base.Result
 import com.ganesh.personalitytester.data.usecase.question_list.PersonalityQuestionUsecase
-import com.ganesh.personalitytester.data.usecase.save_answer.SaveAnswerUseCase
+import com.ganesh.personalitytester.data.usecase.save_answer.AnswerUpdateUseCase
 import com.ganesh.personalitytester.questionList.model.QuestionUIData
 import kotlinx.coroutines.flow.collect
 
 
 class QuestionsViewModel(
     private val personalityQuestionUsecase: PersonalityQuestionUsecase,
-    private val saveAnswerUseCase: SaveAnswerUseCase
+    private val saveAnswerUseCase: AnswerUpdateUseCase
 ) :
     BaseViewModel() {
     val questions = MutableLiveData<List<QuestionUIData?>>()

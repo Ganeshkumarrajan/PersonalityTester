@@ -5,8 +5,8 @@ import com.ganesh.personalitytester.data.local.AnswerDao
 import com.ganesh.personalitytester.data.usecase.question_list.PersonalityQuestionUsecase
 import com.ganesh.personalitytester.data.remote.PersonalityQuestionService
 import com.ganesh.personalitytester.data.usecase.question_list.PersonalityQuestionUsecaseImpl
-import com.ganesh.personalitytester.data.usecase.save_answer.SaveAnswerUseCase
-import com.ganesh.personalitytester.data.usecase.save_answer.SaveAnswerUseCaseImpl
+import com.ganesh.personalitytester.data.usecase.save_answer.AnswerUpdateUseCase
+import com.ganesh.personalitytester.data.usecase.save_answer.AnswerUpdateUseCaseImpl
 import org.koin.dsl.module
 
 
@@ -24,7 +24,7 @@ fun provideListUseCase(
     )
 }
 
-fun provideSavaAnswerUseCase(dao: AnswerDao): SaveAnswerUseCase {
-    return SaveAnswerUseCaseImpl(dao)
+fun provideSavaAnswerUseCase(dao: AnswerDao): AnswerUpdateUseCase {
+    return AnswerUpdateUseCaseImpl(dao)
 }
 

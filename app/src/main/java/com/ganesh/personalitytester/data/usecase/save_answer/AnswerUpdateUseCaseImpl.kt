@@ -10,7 +10,7 @@ import com.ganesh.personalitytester.questionList.model.SingleChoiceQuestionUiDat
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
-class SaveAnswerUseCaseImpl(private val answerDao: AnswerDao) : SaveAnswerUseCase {
+class AnswerUpdateUseCaseImpl(private val answerDao: AnswerDao) : AnswerUpdateUseCase {
     override suspend fun saveAnswer(questions: List<QuestionUIData?>?): Flow<Boolean> = flow {
         questions?.forEach {
             when (it?.questionType) {

@@ -4,6 +4,6 @@ import com.ganesh.personalitytester.questionList.model.QuestionUIData
 import kotlinx.coroutines.flow.Flow
 
 
-interface SaveAnswerUseCase {
+interface AnswerUpdateUseCase {
    suspend fun saveAnswer(questions: List<QuestionUIData?>?): Flow<Boolean>
 }
