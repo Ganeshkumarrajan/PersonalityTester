@@ -10,9 +10,9 @@ ext {
     buildTools = "29.0.2"
 
     // App Versioning
-    versionCodeMajor = 2
-    versionCodeMinor = 1
-    versionCodePatch = 4
+    versionCodeMajor = 1
+    versionCodeMinor = 0
+    versionCodePatch = 0
     versionName = "$versionCodeMajor.$versionCodeMinor.$versionCodePatch"
 
     // Dependencies Version - Presentation
@@ -32,6 +32,8 @@ ext {
     aboutLibsVersion = '8.0.0-rc01'
     stethoVersion = '1.5.1'
     kielVersion = '1.2.1'
+    SDBVersion = "1.0.6"
+    navigation = '2.3.0'
 
     // Data
     retrofitVersion = '2.7.0'
@@ -55,8 +57,8 @@ ext {
     runnerVersion = '1.2.0'
     rulesVersion = '1.2.0'
     archComponentTestVersion = '2.1.0'
-    SDBVersion ="1.0.6"
-
+    coreTest = '2.1.0'
+    mockito = '3.8.0'
 
     // App/Presentation Layer
     appDependencies = [
@@ -78,7 +80,9 @@ ext {
             koinAndroidViewModel  : "org.koin:koin-androidx-viewmodel:$koinVersion",
             stetho                : "com.facebook.stetho:stetho:$stethoVersion",
             kiel                  : "me.ibrahimyilmaz:kiel:$kielVersion",
-            SDP                   : "com.intuit.sdp:sdp-android:$SDBVersion"
+            SDP                   : "com.intuit.sdp:sdp-android:$SDBVersion",
+            navigation            : "androidx.navigation:navigation-fragment-ktx:$navigation",
+            navigationUI          : "androidx.navigation:navigation-ui-ktx:$navigation"
     ]
 
     dataDependencies = [
@@ -111,7 +115,9 @@ ext {
             archComponentTest     : "androidx.arch.core:core-testing:$archComponentTestVersion",
             coroutinesTest        : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesCoreVersion",
             koinTest              : "org.koin:koin-test:$koinVersion",
-
+            coreTesting           : "androidx.arch.core:core-testing:$coreTest",
+            mockito               : "org.mockito:mockito-core:$mockito",
+            mockitoAndroid        : "org.mockito:mockito-android:$mockito",
             roomTest              : "androidx.room:room-testing:$roomVersion"
     ]
 }
